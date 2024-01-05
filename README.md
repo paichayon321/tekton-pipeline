@@ -26,6 +26,11 @@ oc policy add-role-to-user system:image-puller system:serviceaccount:myapp-dr:de
 ----
 
 # Prepare New Environment for DEMO
+```
+Notes:
+Git clone may be error , If use default cluster task -- image sha may be change
+```
+
 ## System Requirement
 - OpenShift 4.12
 - OpenShift GitOps Operator
