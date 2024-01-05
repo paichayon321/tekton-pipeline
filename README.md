@@ -11,6 +11,11 @@ buildah --storage-driver=vfs push --format oci --tls-verify=false default-route-
 # To imagestream from another project, Need to add system:image-puller to default service account user
 
 ```
+oc new-project myapp-dev
+oc new-project myapp-sit
+oc new-project myapp-uat
+oc new-project myapp-prod
+oc new-project myapp-dr
 oc policy add-role-to-user system:image-puller system:serviceaccount:myapp-dev:default --namespace=cicd
 oc policy add-role-to-user system:image-puller system:serviceaccount:myapp-sit:default --namespace=cicd
 oc policy add-role-to-user system:image-puller system:serviceaccount:myapp-uat:default --namespace=cicd
@@ -209,5 +214,11 @@ EOF
 
 ```
 
+# Prepare Github Webhook
+# Configure webhook manually
+
+Open forked github repo sourcecode (Go to Settings > Webhook) click on `Add Webhook` > Add
+
+echo "URL: $(oc  get route el-myapp --template='http://{{.spec.host}}')"
 
 
