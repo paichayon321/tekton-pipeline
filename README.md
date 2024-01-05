@@ -227,3 +227,18 @@ Open forked github repo sourcecode (Go to Settings > Webhook) click on `Add Web
 echo "URL: $(oc  get route el-myapp --template='http://{{.spec.host}}')"
 
 
+# Note
+ At myapp-ci-pipeline 
+ Change image registry url 
+build-image task
+
+```
+        - name: image_repo_url
+          value: default-route-openshift-image-registry.apps.<basedomain>/cicd
+```
+
+argocd task permission
+
+```
+
+```
